@@ -1,0 +1,33 @@
+<div class="form-block">
+    <button (click)="closeForm()">X</button>
+    <h1>Ajout carte</h1>
+    <form [formGroup]="formCard" (ngSubmit)="submitTag()">
+        <div class="input-block">
+            <label for="questionText">Question</label>
+            <input id="questionText" type="text" placeholder="Ex. Angular version 17" formControlName="questionText">
+            @if(questionText?.invalid && (questionText?.dirty || questionText?.touched)){
+            @if(questionText?.hasError('required')){
+            <p class="input-error">La question est obligatoire</p>
+            }
+            @if(questionText?.hasError('minlength') || questionText?.hasError('maxlength')){
+            <p class="input-error">La taille doit comprise entre 3 et 64 caratéres</p>
+            }
+            }
+        </div>
+        <div class="input-block">
+            <label for="responseText">Reponse</label>
+            <input id="responseText" type="text" placeholder="Ex. Réviser la derniere version..."
+                formControlName="responseText">
+            @if(responseText?.invalid && (responseText?.dirty || responseText?.touched)){
+            @if(responseText?.hasError('required')){
+            <p class="input-error">La reponse est obligatoire</p>
+            }
+            @if(responseText?.hasError('maxlength')){
+            <p class="input-error">La taille maximale est de 255 caacteres</p>
+            }
+            }
+        </div>
+        <button type="submit" [disabled]="!formCard.valid"
+            [ngClass]="{'btn-disabled' : !formCard.valid, 'btn-submit' : true}">Valider</button>
+    </form>
+</div>

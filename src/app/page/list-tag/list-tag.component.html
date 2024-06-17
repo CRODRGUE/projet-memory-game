@@ -1,0 +1,29 @@
+<div class="full-page">
+    <app-header class="header-block"></app-header>
+    <main class="content-page ">
+        <div class="tag-info">
+            <h1>Liste des catégories</h1>
+            <button (click)="openForm()">+</button>
+        </div>
+        @if(listTag){
+        <section class="tag-list">
+            @for(tag of listTag; track tag.id){
+            <div class="tag-item">
+                <h4>N°{{tag.id}} : {{tag.name}}</h4>
+                <p>{{tag.description}}</p>
+                <div class="tag-menu">
+                    <button class="btn-see"><a routerLink="/tag/{{tag.id}}">Consulter</a></button>
+                    <button class="btn-delete" (click)="deleteTagById(tag.id)">Supprimer</button>
+                </div>
+            </div>
+            }
+        </section>
+        }@else {
+        <p>Oups aucune catégorie enregistée...</p>
+        }
+        <div #fromBlock class="form-block">
+            <app-tag (formsubmitted)="newTag($event)" (formsClosed)="closeForm()"></app-tag>
+        </div>
+    </main>
+    <app-footer class="footer-block"></app-footer>
+</div>

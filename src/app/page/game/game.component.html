@@ -1,0 +1,40 @@
+<div id="page-block">
+    @if(tagDetails && listCards){
+
+    <div class="menu">
+
+    </div>
+    <div class="game-block">
+        <div class="info-block">
+            <h3>Catégorie {{tagDetails.name}}</h3>
+            <div class="info-block-sub">
+                <p>Level {{level}}</p>
+                <p>{{currentCardIndex+1}}/{{listCards.length}}</p>
+            </div>
+        </div>
+
+
+        <div class="card-block">
+            <div class="card-item active">
+                <div class="card-header">
+                    <p>Carte {{currentCardIndex+1}}</p>
+                </div>
+                <div class="card-question">
+                    <p><span>Q : </span>{{listCards[currentCardIndex].question_text}}</p>
+                </div>
+                <div class="card-response">
+                    <p id="btn-response" (click)="updateResponseDisplay()">Réponse</p>
+                    <p class="response"><span>{{listCards[currentCardIndex].response_text}}</span></p>
+                </div>
+                <div class="card-fotter">
+                    <p (click)="nextCard(1)">Valide</p>
+                    <p (click)="nextCard(-1)">Pas valide</p>
+                </div>
+            </div>
+            <div class="game-score">
+
+            </div>
+        </div>
+    </div>
+    }
+</div>

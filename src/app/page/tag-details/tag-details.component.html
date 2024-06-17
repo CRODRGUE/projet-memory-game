@@ -1,0 +1,57 @@
+<div class="full-page">
+    <app-header class="header-block"></app-header>
+    <main class="content-page ">
+        <div class="tag-info">
+            <div>
+                <h1>Catégorie : {{tagDetails.name}}</h1>
+                <button (click)="openForm()">+</button>
+            </div>
+            <p>{{tagDetails.description}}</p>
+        </div>
+        <div class="level-block">
+            <div #levelBlock class="level-item" data-level="1">
+                <p>level 1</p>
+            </div>
+            <div #levelBlock class="level-item" data-level="2">
+                <p>level 2</p>
+            </div>
+            <div #levelBlock class="level-item" data-level="3">
+                <p>level 3</p>
+            </div>
+            <div #levelBlock class="level-item" data-level="4">
+                <p>level 4</p>
+            </div>
+            <div #levelBlock class="level-item" data-level="5">
+                <p>level 5</p>
+            </div>
+            <div #levelBlock class="level-item" data-level="6">
+                <p>level 6</p>
+            </div>
+            <div #levelBlock class="level-item" data-level="7">
+                <p>level 7</p>
+            </div>
+        </div>
+        @if(listCard.length > 0){
+        @for(card of listCard; track card.id){
+        <div class="card-item">
+            <div class="card-info">
+                <h3>{{card.question_text}}</h3>
+                <button>Voir la réponse</button>
+                <div>
+                    <p>{{card.response_text}}</p>
+                </div>
+            </div>
+            <div class="card-nav">
+                <button>supp</button>
+            </div>
+        </div>
+        }
+        }@else {
+        <p>Oupss aucune carte enregistrée</p>
+        }
+        <div #formBlock class="form-block">
+            <app-card (formSubmitted)="updateDataComponent()" (formClosed)="closeForm()"></app-card>
+        </div>
+    </main>
+    <app-footer class="footer-block"></app-footer>
+</div>

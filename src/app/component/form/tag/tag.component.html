@@ -1,0 +1,33 @@
+<section class="form-block">
+    <button (click)="closeFrom()">X</button>
+    <h1>Ajouter une catégorie</h1>
+    <form [formGroup]="form_tag" (ngSubmit)="submitTag()">
+        <div class="input-block">
+            <label for="name">Nom</label>
+            <input id="name" type="text" placeholder="Ex : Angular version 17" formControlName="name">
+            @if(name?.invalid && !name?.pristine){
+            @if(name?.hasError('required')){
+            <p class="input-error">Le nom du tag est obligatoire</p>
+            }
+            @if(name?.hasError('minlength') || name?.hasError('maxlength')){
+            <p class="input-error">La taille doit comprise entre 3 et 64 caratéres</p>
+            }
+            }
+        </div>
+        <div class="input-block">
+            <label for="description">Description</label>
+            <input type="text" placeholder="Ex : carte contenant les changement..." formControlName="description"
+                required="">
+            @if(description?.invalid && (description?.dirty || description?.touched)){
+            @if(description?.hasError('required')){
+            <p class="input-error">La description est obligatoire</p>
+            }
+            @if(description?.hasError('maxlength')){
+            <p class="input-error">La taille maximale est de 255 caacteres</p>
+            }
+            }
+        </div>
+        <button type="submit" [disabled]="!form_tag.valid"
+            [ngClass]="{'btn-disabled' : !form_tag.valid, 'btn-submit' : true}">Valider</button>
+    </form>
+</section>

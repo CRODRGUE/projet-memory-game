@@ -1,0 +1,46 @@
+header {
+    background: inherit;
+    height: auto;
+    padding: 5px 10px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-block>img {
+    width: 200px;
+    height: 80px;
+}
+
+.menu-block {
+    width: 40%;
+    height: min-content;
+    border: red 1px solid;
+}
+
+.menu-sub {
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
+.menu-sub>li {
+    list-style-type: none;
+}
+
+.menu-sub>li>a {
+    text-decoration: none;
+    color: var(--blanc);
+    font-size: 24px;
+    transition: all .5s ease;
+}
+
+.menu-sub>li>a:hover {
+    text-decoration: none;
+    color: var(--bleu);
+    font-weight: bold;
+    transition: all .5s ease;
+}
