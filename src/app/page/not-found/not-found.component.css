@@ -1,0 +1,11 @@
+.content-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content-page>img {
+    width: 50%;
+    height: 50%;
+}

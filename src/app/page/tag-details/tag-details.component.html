@@ -1,15 +1,15 @@
 <div class="full-page">
     <app-header class="header-block"></app-header>
-    <main class="content-page ">
+    <main class="content-page">
         <div class="tag-info">
             <div>
-                <h1>Catégorie : {{tagDetails.name}}</h1>
+                <h3>Catégorie : {{tagDetails.name}}</h3>
                 <button (click)="openForm()">+</button>
             </div>
             <p>{{tagDetails.description}}</p>
         </div>
         <div class="level-block">
-            <div #levelBlock class="level-item" data-level="1">
+            <div #levelBlock class="level-item level-active" data-level="1">
                 <p>level 1</p>
             </div>
             <div #levelBlock class="level-item" data-level="2">
@@ -30,25 +30,41 @@
             <div #levelBlock class="level-item" data-level="7">
                 <p>level 7</p>
             </div>
+            @if(listDisplayCards.length > 0){
+            <div class="level-item">
+                <a routerLink="/game/{{idTag}}/{{currentLevel}}">Réviser ce niveau !</a>
+            </div>
+            }@else {
+            <div class="level-item">
+                <p class="btn-disabled">Réviser ce niveau !</p>
+            </div>
+            }
         </div>
-        @if(listCard.length > 0){
-        @for(card of listCard; track card.id){
-        <div class="card-item">
-            <div class="card-info">
-                <h3>{{card.question_text}}</h3>
-                <button>Voir la réponse</button>
-                <div>
-                    <p>{{card.response_text}}</p>
+        @if(listDisplayCards.length > 0){
+        <div class="card-list">
+            @for(card of listDisplayCards; track card.id; let index = $index){
+            <div class="card-item">
+                <div class="card-info">
+                    <div class="card-block">
+                        <h3>{{card.question_text}}</h3>
+                        <div class="card-nav">
+                            <button #responseBtn [attr.data-question]="card.id">Voir la réponse</button>
+                            <button (click)="deleteCardById(card.id)">supprimer</button>
+                        </div>
+                    </div>
+                    <div #responseBlock class="response" [attr.data-question]="card.id">
+                        <p>{{card.response_text}}</p>
+                    </div>
                 </div>
             </div>
-            <div class="card-nav">
-                <button>supp</button>
-            </div>
+            }
+        </div>
+        }@else {
+        <div class="no-card">
+            <h2>Oupss aucune carte enregistrée</h2>
         </div>
         }
-        }@else {
-        <p>Oupss aucune carte enregistrée</p>
-        }
+
         <div #formBlock class="form-block">
             <app-card (formSubmitted)="updateDataComponent()" (formClosed)="closeForm()"></app-card>
         </div>

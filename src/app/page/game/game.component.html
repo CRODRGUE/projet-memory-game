@@ -1,40 +1,51 @@
-<div id="page-block">
-    @if(tagDetails && listCards){
-
-    <div class="menu">
-
-    </div>
-    <div class="game-block">
-        <div class="info-block">
-            <h3>Catégorie {{tagDetails.name}}</h3>
-            <div class="info-block-sub">
-                <p>Level {{level}}</p>
-                <p>{{currentCardIndex+1}}/{{listCards.length}}</p>
+<div class="full-page">
+    <app-header class="header-block"></app-header>
+    <main class="content-page">
+        @if(tagDetails && listCards){
+        <div class="game-block">
+            <div class="info-block">
+                <h3>Catégorie {{tagDetails.name}}</h3>
+                <div class="info-block-sub">
+                    <p>Level {{level}}</p>
+                    <p>{{currentCardIndex+1}}/{{listCards.length}}</p>
+                </div>
             </div>
-        </div>
-
-
-        <div class="card-block">
-            <div class="card-item active">
+            @if(this.currentCardIndex <= this.listCards.length - 1){ <div class="card-block">
                 <div class="card-header">
-                    <p>Carte {{currentCardIndex+1}}</p>
+                    <h4>Carte n°{{currentCardIndex+1}}</h4>
                 </div>
-                <div class="card-question">
-                    <p><span>Q : </span>{{listCards[currentCardIndex].question_text}}</p>
+                <div class="card-body">
+                    <div class="card-question">
+                        <p><span>Q : </span>{{listCards[currentCardIndex].question_text}}</p>
+                        @if(true){
+                        <img src="../../../assets/images/CD477BD5-AB0A-42D9-8248-2D6B7625DE42.webp"
+                            alt="image permettant d'ajouter du contexte à la question">
+                        }
+                    </div>
+                    <div class="card-response">
+                        <button id="btn-response" (click)="updateResponseDisplay()">Réponse</button>
+                        <p class="response"><span>{{listCards[currentCardIndex].response_text}}</span></p>
+                    </div>
                 </div>
-                <div class="card-response">
-                    <p id="btn-response" (click)="updateResponseDisplay()">Réponse</p>
-                    <p class="response"><span>{{listCards[currentCardIndex].response_text}}</span></p>
+                <div class="card-footer">
+                    <button class="btn-valide" (click)="nextCard(1)"><img src="../../../assets/icons/valide.png"
+                            alt="icon permettant d'indiquer que la carte est invalide soit non enregsitré"></button>
+                    <button class="btn-invalide" (click)="nextCard(-1)"><img src="../../../assets/icons/invalide.png"
+                            alt="icon permettant d'indiquer que la carte est valide soit enregsitré"></button>
                 </div>
-                <div class="card-fotter">
-                    <p (click)="nextCard(1)">Valide</p>
-                    <p (click)="nextCard(-1)">Pas valide</p>
-                </div>
-            </div>
-            <div class="game-score">
-
-            </div>
         </div>
-    </div>
-    }
+        }@else{
+        <div class="end-block">
+            <h3>🚀Fin de revision</h3>
+            <div>
+                <h4>Nombre de cartes validée : <span>{{listValidateCards.length}}</span></h4>
+                <h4>Nombre de cartes non validée : <span>{{listNotValidateCards.length}}</span></h4>
+            </div>
+            <a routerLink="/tag/{{tagDetails.id}}">Retour</a>
+        </div>
+        }
+</div>
+}
+</main>
+<app-footer class="footer-block"></app-footer>
 </div>

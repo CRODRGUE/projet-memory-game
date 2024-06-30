@@ -103,7 +103,8 @@ h4 {
     font-size: 1.25rem;
 }
 
-p {
+p,
+a {
     font-family: "Montserrat", sans-serif;
     font-size: 1rem;
 }

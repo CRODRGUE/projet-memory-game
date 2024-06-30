@@ -26,10 +26,82 @@
     transition: all .5s ease;
 }
 
+.level-block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin: 15px 0;
+}
 
+.level-block>div,
+.card-nav>button {
+    padding: 5px 25px;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    background-color: var(--black);
+    color: var(--white);
+    transition: all .5s ease;
+}
 
+.level-block>div.level-active,
+.level-block>div:hover,
+.card-nav>button:hover {
+    border: 1px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    transition: all .5s ease;
+}
 
+.level-item>a {
+    text-decoration: none;
+    color: inherit;
+}
 
+.btn-disabled {
+    opacity: .5;
+}
+
+.card-list {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.card-info {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--black);
+}
+
+.card-block {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-nav>button {
+    margin: 0 5px;
+}
+
+.response {
+    display: none;
+}
+
+.response-visible {
+    display: block;
+}
+
+.no-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 400px);
+}
 
 .form-block {
     display: none;

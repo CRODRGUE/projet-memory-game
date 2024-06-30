@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { GameService } from '../../service/game.service';
 import { CardModel } from '../../model/card.model';
 import { CardService } from '../../service/card.service';
 import { TagModel } from '../../model/tag.model';
 import { TagService } from '../../service/tag.service';
+import { HeaderComponent } from '../../component/header/header.component';
+import { FooterComponent } from '../../component/footer/footer.component';
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, FooterComponent, RouterModule],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
@@ -67,9 +69,8 @@ export class GameComponent {
     document.querySelector('.response')?.classList.remove('response-active');
     if (this.currentCardIndex == this.listCards.length - 1) {
       await this.endGame();
-    } else {
-      this.currentCardIndex++
     }
+    this.currentCardIndex++
   }
 
 
@@ -79,13 +80,11 @@ export class GameComponent {
         await this.CardService.updateCardLevel(card.id, card.level + 1).then(v => console.log(v));
       }
     });
-
     await this.listNotValidateCards.forEach(async card => {
       if (card.id) {
         await this.CardService.updateCardLevel(card.id, card.level - 1).then(v => console.log(v));
       }
     });
-
     console.log('update changement level ok');
   }
 

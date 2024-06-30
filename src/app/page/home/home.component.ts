@@ -5,6 +5,7 @@ import { CardService } from '../../service/card.service';
 import { TagService } from '../../service/tag.service';
 import { HeaderComponent } from "../../component/header/header.component";
 import { FooterComponent } from '../../component/footer/footer.component';
+import { NotificationService } from '../../service/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +17,12 @@ import { FooterComponent } from '../../component/footer/footer.component';
 export class HomeComponent {
 
   constructor(private CardService: CardService,
-    private TagService: TagService
+    private TagService: TagService,
+    private NotificationService: NotificationService
   ) { }
+
+  ngOnInit(): void {
+  }
 
   /*  tagAdd() {
    this.GameService.addTag("JS").then((value) => console.log(value)).catch(err => console.warn(err));
@@ -76,5 +81,11 @@ export class HomeComponent {
 
   cardDeleteById(id: number) {
     this.CardService.deleteCardById(id).then(value => console.log(value)).catch(err => console.warn(err));
+  }
+
+  // notification test
+  test() {
+    console.log(Notification.permission);
+    this.NotificationService.subscribeToNotifications();
   }
 }

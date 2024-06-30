@@ -1,6 +1,5 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { GameService } from '../../service/game.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TagModel } from '../../model/tag.model';
 import { CardModel } from '../../model/card.model';
 import { CardComponent } from '../../component/form/card/card.component';
@@ -8,21 +7,25 @@ import { CardService } from '../../service/card.service';
 import { TagService } from '../../service/tag.service';
 import { HeaderComponent } from '../../component/header/header.component';
 import { FooterComponent } from '../../component/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tag-details',
   standalone: true,
-  imports: [CardComponent, HeaderComponent, FooterComponent],
+  imports: [CardComponent, HeaderComponent, FooterComponent, RouterModule],
   templateUrl: './tag-details.component.html',
   styleUrl: './tag-details.component.css'
 })
 export class TagDetailsComponent {
   idTag: number = -1;
+  currentLevel: number = 1;
   tagDetails!: TagModel;
   listCard: CardModel[] = [];
   listDisplayCards: CardModel[] = [];
   @ViewChild('formBlock') formElement!: ElementRef;
   @ViewChildren('levelBlock') levelElements!: QueryList<ElementRef>;
+  @ViewChildren('responseBlock') responseElements!: QueryList<ElementRef>;
+  @ViewChildren('responseBtn') responseBtnElements!: QueryList<ElementRef>;
 
   constructor(private TagService: TagService,
     private CardService: CardService,
@@ -41,6 +44,11 @@ export class TagDetailsComponent {
 
   ngAfterViewInit() {
     this.levelElements.forEach(btn => btn.nativeElement.addEventListener('click', this.choseLevel.bind(this)));
+    this.displayResponseEvent();
+  }
+
+  ngAfterViewChecked() {
+    this.displayResponseEvent();
   }
 
   initDataComponent() {
@@ -48,7 +56,12 @@ export class TagDetailsComponent {
       this.tagDetails = dataTag;
       this.CardService.getCardByTag(this.idTag).then(dataCards => {
         this.listCard = dataCards;
+        this.listDisplayCards = this.listCard.filter(card => card.level == 1);
       }).catch(err => {
+        if (err == `Echéc aucune carte corresponde à la demande`) {
+          this.listDisplayCards = [];
+          return
+        }
         console.log(`Oups une erreur lie aux cartes : ${err}`);
       });
     }).catch(err => {
@@ -58,15 +71,50 @@ export class TagDetailsComponent {
 
 
   choseLevel(event: Event) {
-    console.log(event);
+    const levelAttribut: string | null = (event.currentTarget as HTMLElement).getAttribute("data-level");
     this.levelElements.forEach(level => {
-      console.log(level.nativeElement.getAttribute("data-level"));
+      level.nativeElement.classList.remove('level-active');
+      if (levelAttribut != null && !isNaN(+levelAttribut) && levelAttribut == level.nativeElement.getAttribute("data-level")) {
+        level.nativeElement.classList.add('level-active');
+        this.currentLevel = +levelAttribut;
+        this.listDisplayCards = this.listCard.filter(card => card.level == this.currentLevel);
+      }
     })
   }
 
 
+  displayResponseEvent() {
+    this.responseBtnElements.forEach((btn, index) => {
+      if (!btn.nativeElement.hasEventListener) {
+        btn.nativeElement.addEventListener('click', (event: Event) => {
+          const currentQuestion = (event.currentTarget as HTMLElement).getAttribute('data-question');
+          this.responseElements.forEach(response => {
+            if (currentQuestion == response.nativeElement.getAttribute('data-question')) {
+              response.nativeElement.classList.toggle('response-visible');
+            }
+          })
+        });
+        btn.nativeElement.hasEventListener = true;
+      }
+    });
+  }
+
   updateDataComponent() {
     this.initDataComponent();
+  }
+
+  deleteCardById(id: number | undefined) {
+    if (id) {
+      console.log(id)
+      this.CardService.deleteCardById(id).then(() => {
+        this.initDataComponent();
+      }).catch(err => {
+        console.warn(`Oups une erreur lie à suppresion de la carte : ${err}`);
+      })
+      console.log(this.listDisplayCards);
+      return
+    }
+    console.warn(`Oupss id invalide undefined`);
   }
 
   openForm() {
@@ -74,7 +122,6 @@ export class TagDetailsComponent {
   }
 
   closeForm() {
-    console.log("test")
     this.formElement.nativeElement.classList.remove('form-visible');
   }
 }

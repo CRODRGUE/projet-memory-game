@@ -1,6 +1,5 @@
 * {
     font-family: 'prompt', Arial;
-    color: #E4E4E4;
     margin: 0;
     padding: 0;
 }
@@ -11,8 +10,16 @@
     background-color: aqua;
 }
 
+.content-page {
+    background: url("../../../assets/images/background-home.jpg");
+}
+
 .game-block {
     margin: 5%;
+}
+
+.info-block {
+    color: var(--white);
 }
 
 .info-block>h3 {
@@ -32,20 +39,100 @@
     font-size: 32px;
 }
 
-.card-block {
+.card-block,
+.end-block {
     margin: 5%;
-    font-size: 24px;
-    border: 1px solid red;
+    padding: 25px;
+    min-height: 25vh;
+    border-radius: 20px;
+    background-color: var(--background-color);
+    color: var(--black);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
 }
 
-.card-item span {
+.card-block span {
     font-weight: bold;
 }
 
+.card-body {
+    align-self: center;
+}
+
+.card-question {
+    margin: 10px 0;
+}
+
+.card-question p {
+    font-size: 1.5rem;
+}
+
+.card-question>img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card-response {
+    margin: 10px;
+}
+
+#btn-response,
+.end-block>a {
+    padding: 5px 25px;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    background-color: var(--black);
+    color: var(--white);
+    transition: all .5s ease;
+}
+
+#btn-response:hover,
+.end-block>a:hover {
+    border: 1px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    transition: all .5s ease;
+}
+
 .response {
-    display: none;
+    visibility: hidden;
+    margin: 10px 0;
 }
 
 .response-active {
-    display: block;
+    visibility: visible;
+}
+
+.card-footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
+.card-footer>button {
+    border: 1px solid var(--black);
+    padding: 5px 40px;
+    border-radius: 50px;
+    transition: all .5 ease;
+}
+
+.card-footer>button>img {
+    height: 25px;
+    width: 25px;
+}
+
+.btn-valide:hover {
+    background-color: #4CAF50;
+    transition: all .5 ease;
+}
+
+.btn-invalide:hover {
+    background-color: #F44336;
+    transition: all .5 ease;
+}
+
+
+.end-block>a {
+    width: min-content;
 }
