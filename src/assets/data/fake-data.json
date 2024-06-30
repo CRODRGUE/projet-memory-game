@@ -1,0 +1,188 @@
+{
+    "categories": [
+        {
+            "titre": "Introduction à Python",
+            "description": "Notions de base et premiers pas avec Python.",
+            "cartes": [
+                {
+                    "question": "Qu'est-ce que Python ?",
+                    "reponse": "Python est un langage de programmation interprété, orienté objet et de haut niveau, utilisé pour le développement d'applications variées."
+                },
+                {
+                    "question": "Comment déclarer une variable en Python ?",
+                    "reponse": "En Python, une variable est déclarée simplement en assignant une valeur avec le signe égal (=). Par exemple : x = 10."
+                },
+                {
+                    "question": "Qu'est-ce que l'indentation en Python ?",
+                    "reponse": "En Python, l'indentation est utilisée pour délimiter les blocs de code. Elle remplace les accolades ou les mots-clés comme 'begin' ou 'end' utilisés dans d'autres langages."
+                },
+                {
+                    "question": "Quelle est la différence entre 'print()' et 'return' en Python ?",
+                    "reponse": "'print()' est une fonction qui affiche du contenu à l'écran, tandis que 'return' est utilisé pour renvoyer une valeur depuis une fonction."
+                },
+                {
+                    "question": "Comment importer un module en Python ?",
+                    "reponse": "Pour importer un module en Python, utilisez l'instruction 'import' suivie du nom du module. Par exemple : import math."
+                },
+                {
+                    "question": "Quelle est la signification de 'PEP' en Python ?",
+                    "reponse": "'PEP' signifie 'Python Enhancement Proposal'. Ce sont des documents qui fournissent des informations ou décrivent de nouvelles fonctionnalités pour Python."
+                },
+                {
+                    "question": "Qu'est-ce qu'une liste en Python ?",
+                    "reponse": "En Python, une liste est une collection ordonnée et modifiable d'éléments. Elle est définie en utilisant des crochets ([])."
+                },
+                {
+                    "question": "Comment créer une fonction en Python ?",
+                    "reponse": "Pour créer une fonction en Python, utilisez le mot-clé 'def' suivi du nom de la fonction et des paramètres entre parenthèses, puis le bloc de code indenté."
+                },
+                {
+                    "question": "Qu'est-ce qu'une boucle 'while' en Python ?",
+                    "reponse": "Une boucle 'while' en Python permet d'exécuter un bloc de code tant qu'une condition spécifiée est vraie."
+                },
+                {
+                    "question": "Qu'est-ce qu'un tuple en Python ?",
+                    "reponse": "Un tuple en Python est une collection ordonnée et immuable d'éléments. Il est défini en utilisant des parenthèses ()."
+                }
+            ]
+        },
+        {
+            "titre": "Structures de contrôle en JavaScript",
+            "description": "Utilisation des boucles et des conditions en JavaScript.",
+            "cartes": [
+                {
+                    "question": "Quelles sont les trois structures de contrôle en JavaScript ?",
+                    "reponse": "Les structures de contrôle en JavaScript sont les boucles (for, while, do-while), les conditions (if, else, else if), et les instructions de saut (break, continue, return)."
+                },
+                {
+                    "question": "Comment fonctionne une boucle 'for' en JavaScript ?",
+                    "reponse": "La boucle 'for' en JavaScript permet d'itérer sur une série de valeurs en spécifiant une initialisation, une condition de continuation, et une expression d'itération."
+                },
+                {
+                    "question": "Quelle est la différence entre '==' et '===' en JavaScript ?",
+                    "reponse": "'==' vérifie l'égalité sans vérifier le type, tandis que '===' vérifie l'égalité en tenant compte du type des variables."
+                },
+                {
+                    "question": "Qu'est-ce que le hoisting en JavaScript ?",
+                    "reponse": "Le hoisting est un comportement où les déclarations de variables et de fonctions sont déplacées au sommet de leur contexte d'exécution avant que le code ne soit exécuté."
+                },
+                {
+                    "question": "Comment gérer une exception en JavaScript ?",
+                    "reponse": "En JavaScript, les exceptions peuvent être gérées à l'aide de blocs try-catch où le code suspecté de générer une exception est placé dans le bloc 'try' et les gestionnaires d'exceptions correspondants sont placés dans le bloc 'catch'."
+                },
+                {
+                    "question": "Qu'est-ce qu'une fonction fléchée en JavaScript ?",
+                    "reponse": "Une fonction fléchée en JavaScript est une syntaxe concise pour définir des fonctions anonymes. Elle utilise une flèche (=>) pour définir les paramètres et le corps de la fonction."
+                },
+                {
+                    "question": "Comment utiliser 'forEach()' en JavaScript ?",
+                    "reponse": "'forEach()' est une méthode qui itère sur chaque élément d'un tableau et exécute une fonction de rappel pour chaque élément."
+                },
+                {
+                    "question": "Qu'est-ce qu'une closure en JavaScript ?",
+                    "reponse": "Une closure en JavaScript est une fonction qui conserve une référence à des variables locales définies en dehors de son corps."
+                },
+                {
+                    "question": "Comment déclarer une classe en JavaScript ?",
+                    "reponse": "En JavaScript, une classe est déclarée en utilisant le mot-clé 'class' suivi du nom de la classe, et les méthodes sont définies à l'intérieur du corps de la classe."
+                },
+                {
+                    "question": "Qu'est-ce que 'Promise' en JavaScript ?",
+                    "reponse": "'Promise' est un objet représentant l'achèvement ou l'échec d'une opération asynchrone. Elle permet d'éviter le callback hell en permettant le chaînage des opérations asynchrones."
+                }
+            ]
+        },
+        {
+            "titre": "Gestion des exceptions en Java",
+            "description": "Principes de base pour la gestion des erreurs en Java.",
+            "cartes": [
+                {
+                    "question": "Qu'est-ce qu'une exception en Java ?",
+                    "reponse": "En Java, une exception est un événement anormal qui se produit lors de l'exécution d'un programme et qui interrompt le flux normal d'exécution."
+                },
+                {
+                    "question": "Comment gérer une exception en Java ?",
+                    "reponse": "En Java, les exceptions peuvent être gérées à l'aide de blocs try-catch où le code suspecté de générer une exception est placé dans le bloc 'try' et les gestionnaires d'exceptions correspondants sont placés dans le bloc 'catch'."
+                },
+                {
+                    "question": "Quelles sont les différences entre 'checked' et 'unchecked' exceptions en Java ?",
+                    "reponse": "Les 'checked' exceptions doivent être explicitement déclarées dans la signature de la méthode ou gérées avec un bloc try-catch, tandis que les 'unchecked' exceptions (RuntimeExceptions) ne sont pas obligatoires d'être déclarées."
+                },
+                {
+                    "question": "Qu'est-ce que le bloc 'finally' en Java ?",
+                    "reponse": "Le bloc 'finally' en Java est utilisé dans un bloc try-catch pour exécuter du code quel que soit le résultat de l'exécution du bloc try ou des blocs catch associés."
+                },
+                {
+                    "question": "Quelle est la hiérarchie des classes d'exceptions en Java ?",
+                    "reponse": "En Java, toutes les exceptions sont des sous-classes de la classe 'Throwable'. 'Exception' est une classe qui représente les exceptions couramment gérées, tandis que 'Error' est utilisé pour des erreurs graves."
+                },
+                {
+                    "question": "Comment créer une exception personnalisée en Java ?",
+                    "reponse": "Pour créer une exception personnalisée en Java, vous devez créer une classe qui étend 'Exception' ou une de ses sous-classes, et ajouter les fonctionnalités spécifiques nécessaires."
+                },
+                {
+                    "question": "Quelles sont les meilleures pratiques pour gérer les exceptions en Java ?",
+                    "reponse": "Les meilleures pratiques incluent la gestion des exceptions au niveau approprié, la documentation des exceptions levées, et la fermeture des ressources dans des blocs 'try-with-resources'."
+                },
+                {
+                    "question": "Comment utiliser 'throws' en Java ?",
+                    "reponse": "En Java, 'throws' est utilisé dans la signature d'une méthode pour indiquer que la méthode peut lancer une exception spécifique, qui doit être gérée par le code appelant ou être déclarée à son tour."
+                },
+                {
+                    "question": "Qu'est-ce qu'un bloc 'try-with-resources' en Java ?",
+                    "reponse": "Un bloc 'try-with-resources' en Java est une version améliorée de 'try-catch-finally' introduite dans Java 7, utilisée pour gérer automatiquement la fermeture des ressources ouvertes."
+                },
+                {
+                    "question": "Comment gérer les exceptions non vérifiées (unchecked exceptions) en Java ?",
+                    "reponse": "Les exceptions non vérifiées (unchecked exceptions) en Java, telles que les RuntimeExceptions, ne nécessitent pas de déclaration explicite dans la signature de la méthode ou de gestion avec un bloc try-catch."
+                }
+            ]
+        },
+        {
+            "titre": "Bases de données SQL",
+            "description": "Principes fondamentaux de la manipulation de données avec SQL.",
+            "cartes": [
+                {
+                    "question": "Qu'est-ce que SQL ?",
+                    "reponse": "SQL (Structured Query Language) est un langage de programmation conçu pour gérer et manipuler des bases de données relationnelles."
+                },
+                {
+                    "question": "Comment sélectionner des données avec SQL ?",
+                    "reponse": "Pour sélectionner des données dans une base de données avec SQL, on utilise la clause SELECT suivie des colonnes à récupérer et de la table à interroger."
+                },
+                {
+                    "question": "Qu'est-ce que 'INSERT INTO' en SQL ?",
+                    "reponse": "'INSERT INTO' est une instruction SQL utilisée pour insérer de nouvelles lignes de données dans une table spécifiée avec des valeurs spécifiques pour chaque colonne."
+                },
+                {
+                    "question": "Quelles sont les principales clauses SQL pour filtrer les données ?",
+                    "reponse": "Les clauses SQL telles que WHERE, ORDER BY, GROUP BY, HAVING, et LIMIT sont utilisées pour filtrer, trier, regrouper et limiter les résultats des requêtes SQL."
+                },
+                {
+                    "question": "Comment mettre à jour des données avec SQL ?",
+                    "reponse": "Pour mettre à jour des données dans une table avec SQL, utilisez l'instruction UPDATE suivie du nom de la table, de la colonne à mettre à jour, et de la nouvelle valeur."
+                },
+                {
+                    "question": "Qu'est-ce que 'DELETE FROM' en SQL ?",
+                    "reponse": "'DELETE FROM' est une instruction SQL utilisée pour supprimer des lignes spécifiques d'une table en fonction d'une condition spécifiée."
+                },
+                {
+                    "question": "Qu'est-ce que 'JOIN' en SQL ?",
+                    "reponse": "'JOIN' est une clause SQL utilisée pour combiner des lignes de deux ou plusieurs tables basées sur une relation entre les colonnes de ces tables."
+                },
+                {
+                    "question": "Comment créer une nouvelle table avec SQL ?",
+                    "reponse": "Pour créer une nouvelle table dans une base de données avec SQL, utilisez l'instruction CREATE TABLE suivie du nom de la table et de la définition des colonnes et de leurs types de données."
+                },
+                {
+                    "question": "Qu'est-ce que 'UNION' en SQL ?",
+                    "reponse": "'UNION' est une clause SQL utilisée pour combiner les résultats de deux ou plusieurs instructions SELECT en une seule liste de résultats distincts."
+                },
+                {
+                    "question": "Quelles sont les différences entre 'INNER JOIN' et 'OUTER JOIN' en SQL ?",
+                    "reponse": "'INNER JOIN' renvoie uniquement les lignes lorsque des correspondances sont trouvées dans les deux tables, tandis que 'OUTER JOIN' renvoie toutes les lignes, même celles qui n'ont pas de correspondance dans l'autre table."
+                }
+            ]
+        }
+    ]
+}

@@ -38,8 +38,16 @@ export class NotificationService {
   }
 
   askServerPush(sub: PushSubscription) {
-    this.http.post('http://localhost:3000/subscribe/notification', sub).subscribe(res => {
-      console.log(res)
+    this.http.post('http://localhost:3000/subscribe/notification', sub).subscribe({
+      next(value) {
+        console.log('ici', value);
+      },
+      error(err) {
+        console.log('ici', err)
+      },
+      complete() {
+        console.log('ici end')
+      },
     });
   }
 }
