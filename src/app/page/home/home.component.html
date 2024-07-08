@@ -4,35 +4,63 @@
         <section class="cta-block">
             <div class="cta">
                 <h1>Bienvenue au Memory Game Éducatif en Ligne</h1>
-                <p>Améliorez votre mémoire avec des jeux amusants et stimulants !</p>
-                <a routerLink="/">Jouer maintenant</a>
+                <p>Améliorez votre mémoire avec la répétition espacée !</p>
+                <a routerLink="/tag/list">Jouer maintenant</a>
             </div>
         </section>
 
         <section class="advantages">
             <h2>Les avantages de la révision espacée ?</h2>
             <div class="advantages-list">
-                <div class="advantage">
+                <article class="advantage">
                     <img src="" alt="">
                     <h3>Efficacité</h3>
                     <p>Elle permet d'apprendre une grande quantité d'informations de manière durable en
                         optimisant les temps de révision.</p>
-                </div>
-                <div class="advantage">
+                </article>
+                <article class="advantage">
                     <img src="" alt="">
                     <h3>Flexibilité</h3>
                     <p>Vous pouvez adapter le système à vos besoins spécifiques, que ce soit pour l'apprentissage de
                         vocabulaire, de faits scientifiques, ou de concepts complexes.</p>
-                </div>
-                <div class="advantage">
+                </article>
+                <article class="advantage">
                     <img src="" alt="">
                     <h3>Accessibilité</h3>
                     <p>Des applications comme Anki et Tinycards automatisent le processus, rendant la méthode facile à
                         suivre.</p>
-                </div>
+                </article>
             </div>
         </section>
-        <h1 (click)="insertFakeData()">Test notification</h1>
+        <section class="work">
+            <h2>Comment utiliser "Memory Game" ?</h2>
+            <div>
+                <p>Pour commencer à utiliser "Memory Game" rien de trés compliqué, il suffit de suivre les étapes
+                    ci-dessous
+                    :</p>
+                <ul>
+                    <li>Créer une catégorie de révision</li>
+                    <li>Ajouter des cartes pour réviser des notions en lien avec la catégorie. Il est possible
+                        d'utiliser du
+                        texte et des contenus multimédias.</li>
+                    <li>Réviser vos notions !</li>
+                </ul>
+            </div>
+        </section>
+        <section class="test">
+            <h2>Comment tester les fonctionnalitées ?</h2>
+            <div>
+                <p>Vous pouvez tester les diffrentes fonctionnalité implementer en suivant les instruction ci-dessous
+                    :</p>
+                <ul>
+                    <li>Ajouter des données factises : <button (click)="insertFakeData()">Ajouter des données</button>
+                    </li>
+                    <li>Planning de révision : ajouter des catégorie puis consulter la page planning</li>
+                    <li>Révision : creer des categories puis associer des cartes à celles-ci puis réviser</li>
+                    <li>Notification : demarrer le serveur de notification push puis lanceer des notifications</li>
+                </ul>
+            </div>
+        </section>
     </main>
     <app-footer class="footer-block"></app-footer>
 </div>

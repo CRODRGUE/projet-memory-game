@@ -7,23 +7,23 @@
             <input id="name" type="text" placeholder="Ex : Angular version 17" formControlName="name">
             @if(name?.invalid && !name?.pristine){
             @if(name?.hasError('required')){
-            <p class="input-error">Le nom du tag est obligatoire</p>
+            <p class="input-error">Le nom de la catégorie est obligatoire</p>
             }
             @if(name?.hasError('minlength') || name?.hasError('maxlength')){
-            <p class="input-error">La taille doit comprise entre 3 et 64 caratéres</p>
+            <p class="input-error">La taille doit comprise entre 3 et 64 caractères</p>
             }
             }
         </div>
         <div class="input-block">
             <label for="description">Description</label>
-            <input type="text" placeholder="Ex : carte contenant les changement..." formControlName="description"
+            <input type="text" placeholder="Ex : Les cartes concernent les changements..." formControlName="description"
                 required="">
             @if(description?.invalid && (description?.dirty || description?.touched)){
             @if(description?.hasError('required')){
             <p class="input-error">La description est obligatoire</p>
             }
             @if(description?.hasError('maxlength')){
-            <p class="input-error">La taille maximale est de 255 caacteres</p>
+            <p class="input-error">La taille maximum est de 255 caractères</p>
             }
             }
         </div>

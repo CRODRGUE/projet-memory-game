@@ -4,6 +4,7 @@ import { HomeComponent } from './page/home/home.component';
 import { TagDetailsComponent } from './page/tag-details/tag-details.component';
 import { GameComponent } from './page/game/game.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
+import { PlanningComponent } from './page/planning/planning.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,11 @@ export const routes: Routes = [
         path: 'game/:id_tag/:level',
         component: GameComponent,
         title: 'révision'
+    },
+    {
+        path: 'planning',
+        component: PlanningComponent,
+        title: 'planning de révision'
     },
     {
         path: '**',

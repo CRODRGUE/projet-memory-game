@@ -1,0 +1,32 @@
+<div class="full-page">
+    <app-header class="header-block"></app-header>
+    <main class="content-page">
+        <div class="planning-info">
+            <h1>Planning de révision</h1>
+            <form [formGroup]="formSearch" (ngSubmit)="submitSearch()">
+                <input type="date" name="selectDate" formControlName="searchDate">
+                <button type="submit">search</button>
+            </form>
+        </div>
+        <section class="planning-block">
+            <h2>Liste des catégories à réviser pour le : {{this.searchDate | date:'dd / MM / yyyy'}}</h2>
+            <div class="planning-list">
+                @if(this.listItemsPlanning.length > 0){
+                @for(itemPlanning of listItemsPlanning; track itemPlanning.id_tag){
+                <article class="planning-item">
+                    <div>
+                        <h3>{{itemPlanning.name_tag}}</h3>
+                        <p>niveau à réviser : {{itemPlanning.list_level.join(" ")}}</p>
+                    </div>
+                    <a routerLink="/tag/{{itemPlanning.id_tag}}">Consulter</a>
+                </article>
+                }
+                }@else {
+                <p>Aucune catégorie à réviser pour cette date</p>
+                }
+            </div>
+
+        </section>
+    </main>
+    <app-footer class="footer-block"></app-footer>
+</div>

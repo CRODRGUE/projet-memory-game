@@ -2,7 +2,6 @@ import { Component, EventEmitter, output, OutputEmitterRef } from '@angular/core
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardModel } from '../../../model/card.model';
-import { GameService } from '../../../service/game.service';
 import { CardService } from '../../../service/card.service';
 import { CommonModule, NgClass } from '@angular/common';
 

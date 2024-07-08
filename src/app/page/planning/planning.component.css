@@ -1,0 +1,74 @@
+.content-page {
+    padding: 0 15px;
+}
+
+.planning-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.planning-info>form>input {
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+.planning-info>form>button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.planning-list {
+    box-sizing: border-box;
+    padding: 15px 25px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.planning-item {
+    max-width: 30%;
+    height: auto;
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+    padding: 10px 25px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 1px 1.25px 5px 1.25px #1b1b1b75;
+    border: 1px solid var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.planning-item>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.planning-item>a {
+    margin-top: 15px;
+    text-decoration: none;
+    width: min-content;
+    padding: 5px 25px;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    background-color: var(--black);
+    color: var(--white);
+    transition: all .5s ease;
+}
+
+.planning-item>a:hover {
+    border: 1px solid var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    transition: all .5s ease;
+}

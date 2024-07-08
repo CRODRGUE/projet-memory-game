@@ -49,7 +49,7 @@
                         <h3>{{card.question_text}}</h3>
                         <div class="card-nav">
                             <button #responseBtn [attr.data-question]="card.id">Voir la réponse</button>
-                            <button (click)="deleteCardById(card.id)">supprimer</button>
+                            <button (click)="deleteCardById(card.id)">Supprimer</button>
                         </div>
                     </div>
                     <div #responseBlock class="response" [attr.data-question]="card.id">
@@ -60,9 +60,10 @@
             }
         </div>
         }@else {
-        <div class="no-card">
-            <h2>Oupss aucune carte enregistrée</h2>
-        </div>
+        <section class="no-card">
+            <h3>Oups aucune carte enregistrée...</h3>
+            <p>Pour ajouter une carte de révision appuyée sur le bouton <span>"+"</span> en haut à droite !</p>
+        </section>
         }
 
         <div #formBlock class="form-block">

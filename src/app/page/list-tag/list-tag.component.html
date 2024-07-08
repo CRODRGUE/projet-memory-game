@@ -8,18 +8,21 @@
         @if(listTag){
         <section class="tag-list">
             @for(tag of listTag; track tag.id){
-            <div class="tag-item">
+            <article class="tag-item">
                 <h4>N°{{tag.id}} : {{tag.name}}</h4>
                 <p>{{tag.description}}</p>
                 <div class="tag-menu">
                     <button class="btn-see"><a routerLink="/tag/{{tag.id}}">Consulter</a></button>
                     <button class="btn-delete" (click)="deleteTagById(tag.id)">Supprimer</button>
                 </div>
-            </div>
+            </article>
             }
         </section>
         }@else {
-        <p>Oups aucune catégorie enregistée...</p>
+        <section class="tag-list-empty">
+            <h3>Oups aucune catégorie enregistrée...</h3>
+            <p>Pour ajouter une catégorie de révision appuyée sur le bouton <span>"+"</span> en haut à droite !</p>
+        </section>
         }
         <div #fromBlock class="form-block">
             <app-tag (formsubmitted)="newTag($event)" (formsClosed)="closeForm()"></app-tag>

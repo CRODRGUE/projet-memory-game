@@ -80,3 +80,18 @@
 .advantage>p {
     text-align: justify;
 }
+
+.work,
+.test {
+    margin: 10px 15px;
+}
+
+.work>div>ul,
+.test>div>ul {
+    margin: 15px 0;
+}
+
+.work>div>ul>li,
+.test>div>ul>li {
+    margin: 5px 0;
+}

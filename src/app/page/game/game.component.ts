@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { GameService } from '../../service/game.service';
 import { CardModel } from '../../model/card.model';
 import { CardService } from '../../service/card.service';
 import { TagModel } from '../../model/tag.model';
@@ -47,10 +46,10 @@ export class GameComponent {
       this.tagDetails = dataTag;
       await this.CardService.getCardByLevelAndTag({ id_tag, level }).then(listCards => {
         this.listCards = listCards;
-      }).catch(err => {
+      }).catch(() => {
         console.warn(`Oups erreur lors de la récupération des données liées à la catégorie`);
       });
-    }).catch(err => {
+    }).catch(() => {
       console.warn(`Oups erreur lors de la récupération des carte liées à la catégorie & level`);
     })
   }
@@ -75,16 +74,16 @@ export class GameComponent {
 
 
   async endGame() {
-    await this.listValidateCards.forEach(async card => {
+    for (const card of this.listValidateCards) {
       if (card.id) {
         await this.CardService.updateCardLevel(card.id, card.level + 1).then(v => console.log(v));
       }
-    });
-    await this.listNotValidateCards.forEach(async card => {
+    }
+    for (const card of this.listNotValidateCards) {
       if (card.id) {
         await this.CardService.updateCardLevel(card.id, card.level - 1).then(v => console.log(v));
       }
-    });
+    }
     console.log('update changement level ok');
   }
 
